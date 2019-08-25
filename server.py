@@ -4,7 +4,7 @@ import json
 import binascii
 from easyzone import easyzone
 from easyzone.zone_reload import ZoneReload
-from config import ZONEDIR, WORKDIR, LISTEN
+from config import ZONEDIR, WORKDIR
 
 
 app = Flask(__name__, static_url_path='')

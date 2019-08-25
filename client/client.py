@@ -40,6 +40,7 @@ def send_request(URL, enc_payload, signature):
     if res.status_code == 200:
         exit(0)
     else:
+        print(res.text)
         print('Error')
 
 def main():
@@ -53,8 +54,13 @@ def main():
     send_request(URL, enc, signature)
 
 if __name__ == '__main__':
-    if argv[1] == 'gen_rsa':
-        gen_newkeys()
-        exit(0)
-    else:
+    try:
+        arg = argv[1]
+    except IndexError:
         main()
+    else:
+        if arg == 'gen_rsa':
+            gen_newkeys()
+            exit(0)
+        else:
+            main()

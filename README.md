@@ -14,9 +14,25 @@ Installing server:
 8. pip install flask
 9. pip install rsa
 10. pip install uwsgi
-10. mv easyzone.py lib/pythonYOUR_VERSION_HERE/site-packages/easyzone/
-11. useradd -s /bin/false -G bind -d /opt/dyndns dyndns
-12. chown -Rc dyndns:bind /opt/dyndns/
-13. mv dyndns.service /etc/systemd/system/
-14. systemctl start dyndn.service
-15. 
+11. mv easyzone.py lib/pythonYOUR_VERSION_HERE/site-packages/easyzone/
+12. useradd -s /bin/false -G bind -d /opt/dyndns dyndns
+13. mkdir rsa
+14. mkdir client/rsa
+15. chown -Rc dyndns:bind /opt/dyndns/
+16. mv dyndns.service /etc/systemd/system/
+17. systemctl start dyndns.service
+18. Generating keys takes about 20-30 sec, after that you can stop service systemctl stop dyndns.service
+19. cp public_server.pem client/rsa/public_server.pem
+20. chown dyndns:dyndns client/rsa/public_server.pem
+
+Installing client:
+1. Copy client folder to remote server (/opt/dyndns-client/ by default)
+2. pip3 install requests
+3. pip3 install rsa
+4. cd /opt/dyndns-client/
+5. python3 client.py gen_rsa
+6. edit client_config.py: domain - root domain, subdomains - subdomains to control
+for example: domain = "example.com" subdomains = ["domain1", ""]. "" cname for root domain
+7. get rsa/public.pem and put it to server rsa directory with domain as filename:
+cp rsa/public /path/to/server/rsa/example.com
+8. chmod g+w to your zonefile on server

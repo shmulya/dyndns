@@ -25,10 +25,16 @@ def check_domain():
      data = request.json
      try:
           message = rsa.decrypt(binascii.a2b_base64(data['message'].encode('utf8')), pkey)
-          payload = json.loads(message)
+          payload = json.loads(message.decode('utf8'))
      except rsa.pkcs1.DecryptionError as e:
           response = app.response_class(status=400)
           return response
+     except binascii.Error:
+         response = app.response_class(status=400)
+         return response
+     except TypeError:
+         response = app.response_class(status=400)
+         return response
      else:
           print('im in')
           domain = payload['domain']
@@ -77,4 +83,4 @@ def check_domain():
 
 if __name__ == '__main__':
      app.debug = True
-     app.run(LISTEN)
+     app.run()

@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve dyndns-uwsgi project
+After=network.target
+
+[Service]
+User=dyndns
+Group=bind
+WorkingDirectory=/opt/dyndns
+Environment="PATH=/opt/dyndns/bin"
+ExecStart=/opt/dyndns/bin/uwsgi --ini uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

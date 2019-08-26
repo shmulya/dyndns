@@ -1,3 +1,4 @@
+dnspython
 easyzone
 flask
 rsa

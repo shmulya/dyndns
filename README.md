@@ -3,10 +3,11 @@
 Requirements:
 apt install virtualenv, python3, python3-dev build-essential
 
-Installing server:
-1. sudo python3 setup.py
-2. cp public_server.pem client/rsa/public_server.pem
-3. chown dyndns:dyndns client/rsa/public_server.pem
+Installing server (from root):
+1. git clone https://github.com/shmulya/dyndns.git /opt/dyndns
+2. python3 setup.py
+3. cp public_server.pem client/rsa/public_server.pem
+4. chown dyndns:dyndns client/rsa/public_server.pem
 
 systemclt start dyndns - start service
 systemclt stop dyndns - stop service

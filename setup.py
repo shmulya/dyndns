@@ -4,14 +4,6 @@ import os
 PATH = '/opt/dyndns'
 
 
-def git_clone(url, path):
-    res = subprocess.check_call('git clone {} {}'.format(url, path), shell=True)
-    if res == 0:
-        return True
-    else:
-        return False
-
-
 def create_venv(interpreter, path):
     res = subprocess.check_call('virtualenv -p {} {}'.format(interpreter, path), shell=True)
     if res == 0:
@@ -79,7 +71,6 @@ def gen_newkeys():
     print('Done')
 
 
-git_clone('https://github.com/shmulya/dyndns.git', PATH)
 create_venv('/usr/bin/python3', PATH)
 install_python_requirements(PATH)
 add_user(PATH)

@@ -10,10 +10,12 @@ Installing server (from root):
 4. cp public_server.pem client/rsa/public_server.pem
 5. chown dyndns:dyndns client/rsa/public_server.pem
 
+```
 systemclt start dyndns - start service
 systemclt stop dyndns - stop service
 systemclt restart dyndns - restart service 
 /opt/dyndns/logfile.log - log
+```
 
 Installing client:
 1. Copy client folder to remote server (/opt/dyndns-client/ by default)

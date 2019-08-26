@@ -1,7 +1,9 @@
 # dyndns
 
 Requirements:
+```
 apt install virtualenv, python3, python3-dev build-essential
+```
 
 Installing server (from root):
 1. git clone https://github.com/shmulya/dyndns.git /opt/dyndns

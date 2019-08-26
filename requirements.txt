@@ -1,0 +1,4 @@
+easyzone
+flask
+rsa
+uwsgi

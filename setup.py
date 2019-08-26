@@ -71,9 +71,18 @@ def create_service(path):
     else:
         return False
 
+def gen_newkeys():
+    print('Generation new RSA keys...')
+    (pubkey, pkey) = rsa.newkeys(2048, poolsize=4)
+    open(WORKDIR + 'private_server.pem', 'wb').write(pkey.save_pkcs1(format='PEM'))
+    open(WORKDIR + 'public_server.pem', 'wb').write(pubkey.save_pkcs1(format='PEM'))
+    print('Done')
+
+
 git_clone('https://github.com/shmulya/dyndns.git', PATH)
 create_venv('/usr/bin/python3', PATH)
 install_python_requirements(PATH)
 add_user(PATH)
 create_service(PATH)
 dirop(PATH)
+gen_newkeys()

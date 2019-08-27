@@ -27,6 +27,7 @@ Installing client:
 5. python3 client.py gen_rsa
 6. edit client_config.py: 
 ```
+URL - server's usr. http://your_ip:12227/domain
 domain - root domain 
 subdomains - subdomains to control for example: 
 domain = "example.com" 

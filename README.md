@@ -16,7 +16,7 @@ Installing server (from root):
 systemclt start dyndns - start service
 systemclt stop dyndns - stop service
 systemclt restart dyndns - restart service 
-/opt/dyndns/logfile.log - log
+/var/log/dyndns.log - log
 ```
 
 Installing client:

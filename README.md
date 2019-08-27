@@ -35,5 +35,7 @@ subdomains = ["domain1", ""].
 "" - cname for root domain (@, example.com., etc.)
 ```
 7. get rsa/public.pem and put it to server rsa directory with domain as filename:
+```
 cp rsa/public /path/to/server/rsa/example.com
+```
 8. chmod g+w to your zonefile on server

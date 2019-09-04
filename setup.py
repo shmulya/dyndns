@@ -67,8 +67,8 @@ def create_service(path):
 def gen_newkeys():
     print('Generation new RSA keys...')
     (pubkey, pkey) = rsa.newkeys(2048, poolsize=4)
-    open(WORKDIR + 'private_server.pem', 'wb').write(pkey.save_pkcs1(format='PEM'))
-    open(WORKDIR + 'public_server.pem', 'wb').write(pubkey.save_pkcs1(format='PEM'))
+    open(PATH + 'private_server.pem', 'wb').write(pkey.save_pkcs1(format='PEM'))
+    open(PATH + 'public_server.pem', 'wb').write(pubkey.save_pkcs1(format='PEM'))
     print('Done')
 
 

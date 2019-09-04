@@ -2,7 +2,8 @@
 
 Requirements:
 ```
-apt install virtualenv python3 python3-dev build-essential git
+apt install virtualenv python3 python3-dev build-essential git 
+pip3 install rsa
 ```
 
 Installing server (from root):
